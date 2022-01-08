@@ -1,8 +1,12 @@
 const express = require("express");
+const { ApolloServer } = require("apollo-server-express");
+
+const { typeDefs, resolvers } = require("./schemas");
+const db = require("./config/connection");
+
 const app = express();
 const path = require("path");
 const cors = require("cors");
-const db = require("./config/connection");
 
 var compression = require("compression");
 app.use(compression());
@@ -11,6 +15,11 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
 const config = require("./config/key");
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 app.use(cors());
 
@@ -43,4 +52,11 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Server Listening on ${port}`);
+});
+
+db.once("open", () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+  });
 });
