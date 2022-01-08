@@ -16,7 +16,6 @@ const cookieParser = require("cookie-parser");
 const config = require("./config/key");
 
 const port = process.env.PORT || 5000;
-const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
