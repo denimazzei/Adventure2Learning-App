@@ -11,24 +11,24 @@ const cors = require("cors");
 var compression = require("compression");
 app.use(compression());
 
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
 const config = require("./config/key");
 
+const port = process.env.PORT || 5000;
+const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
+server.applyMiddleware({ app });
+
 app.use(cors());
 
-//to not get any deprecation warning or error
-//support parsing of application/x-www-form-urlencoded post data
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 //to get json data
-// support parsing of application/json type post data
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/users", require("./routes/users"));
@@ -47,8 +47,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
   });
 }
-
-const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Server Listening on ${port}`);
