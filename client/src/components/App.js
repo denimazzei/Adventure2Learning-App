@@ -1,31 +1,51 @@
-import React, { Suspense } from 'react';
-import { Route, Switch } from "react-router-dom";
-import Auth from "../hoc/auth";
-// pages for this product
-import LandingPage from "./views/LandingPage/LandingPage.js";
-import LoginPage from "./views/LoginPage/LoginPage.js";
-import RegisterPage from "./views/RegisterPage/RegisterPage.js";
-import NavBar from "./views/NavBar/NavBar";
-import Footer from "./views/Footer/Footer"
+import React from "react";
 
-//null   Anyone Can go inside
-//true   only logged in user can go inside
-//false  logged in user can't go inside
+// core components
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
+import PageHeader from "components/PageHeader/PageHeader.js";
+import Footer from "components/Footer/Footer.js";
 
-function App() {
+// sections for this page/view
+import Basics from "views/IndexSections/Basics.js";
+import Navbars from "views/IndexSections/Navbars.js";
+import Tabs from "views/IndexSections/Tabs.js";
+import Pagination from "views/IndexSections/Pagination.js";
+import Notifications from "views/IndexSections/Notifications.js";
+import Typography from "views/IndexSections/Typography.js";
+import JavaScript from "views/IndexSections/JavaScript.js";
+import NucleoIcons from "views/IndexSections/NucleoIcons.js";
+import Signup from "views/IndexSections/Signup.js";
+import Examples from "views/IndexSections/Examples.js";
+import Download from "views/IndexSections/Download.js";
+
+export default function Index() {
+  React.useEffect(() => {
+    document.body.classList.toggle("index-page");
+    // Specify how to clean up after this effect:
+    return function cleanup() {
+      document.body.classList.toggle("index-page");
+    };
+  }, []);
   return (
-    <Suspense fallback={(<div>Loading...</div>)}>
-      <NavBar />
-      <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
-        <Switch>
-          <Route exact path="/" component={Auth(LandingPage, null)} />
-          <Route exact path="/login" component={Auth(LoginPage, false)} />
-          <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        </Switch>
+    <>
+      <IndexNavbar />
+      <div className="wrapper">
+        <PageHeader />
+        <div className="main">
+          <Basics />
+          <Navbars />
+          <Tabs />
+          <Pagination />
+          <Notifications />
+          <Typography />
+          <JavaScript />
+          <NucleoIcons />
+          <Signup />
+          <Examples />
+          <Download />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </Suspense>
+    </>
   );
 }
-
-export default App;
