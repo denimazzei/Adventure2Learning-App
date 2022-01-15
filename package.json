@@ -8,10 +8,14 @@
     "npm": "6.9.0"
   },
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server/index.js",
     "backend": "nodemon server/index.js",
     "frontend": "npm run start --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client        && npm run build --prefix client"
   },
   "author": "Deni Mazzei",
   "license": "ISC",
