@@ -22,8 +22,8 @@ import {
 } from "reactstrap";
 
 // core components
-import IndexNavbar from "../components/Navbars/IndexNavbar";
-import Footer from "../components/Footer/Footer";
+import IndexNavbar from "../Navbars/IndexNavbar";
+import Footer from "../Footer/Footer";
 
 export default function RegisterPage() {
   const [squares1to6, setSquares1to6] = React.useState("");

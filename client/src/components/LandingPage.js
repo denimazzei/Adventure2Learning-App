@@ -1,5 +1,5 @@
 import React from "react";
-import SearchMovies from "../../components/Search";
+import SearchMovies from "./Search";
 // react plugin used to create charts
 //import { Line } from "react-chartjs-2";
 // reactstrap components
