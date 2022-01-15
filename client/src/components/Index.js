@@ -1,12 +1,12 @@
 import React from "react";
 
 // core components
-import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import PageHeader from "components/PageHeader/PageHeader.js";
-import Footer from "components/Footer/Footer.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar.js";
+import PageHeader from "../components/PageHeader/PageHeader.js";
+import Footer from "../components/Footer/Footer";
 
 // sections for this page/view
-import Navbars from "views/IndexSections/Navbars.js";
+//import Navbars from "views/IndexSections/Navbars.js";
 //import Pagination from "views/IndexSections/Pagination.js";
 //import Signup from "views/IndexSections/Signup.js";
 
@@ -23,9 +23,7 @@ export default function Index() {
       <IndexNavbar />
       <div className="wrapper">
         <PageHeader />
-        <div className="main">
-          <Navbars />
-        </div>
+        <div className="main"></div>
         <Footer />
       </div>
     </>

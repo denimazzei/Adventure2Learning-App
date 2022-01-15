@@ -13,7 +13,7 @@ import {
   FormGroup,
   Form,
   Input,
-  InputGroupAddon,
+  //InputGroupAddon,
   InputGroupText,
   InputGroup,
   Container,
@@ -22,8 +22,8 @@ import {
 } from "reactstrap";
 
 // core components
-import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import Footer from "components/Footer/Footer.js";
+import IndexNavbar from "../components/Navbars/IndexNavbar";
+import Footer from "../components/Footer/Footer";
 
 export default function RegisterPage() {
   const [squares1to6, setSquares1to6] = React.useState("");
@@ -81,7 +81,10 @@ export default function RegisterPage() {
                     <CardHeader>
                       <CardImg
                         alt="..."
-                        src={require("assets/img/square-purple-1.png").default}
+                        src={
+                          require("../../assets/img/square-purple-1.png")
+                            .default
+                        }
                       />
                       <CardTitle tag="h4">Register</CardTitle>
                     </CardHeader>
@@ -92,11 +95,11 @@ export default function RegisterPage() {
                             "input-group-focus": fullNameFocus,
                           })}
                         >
-                          <InputGroupAddon addonType="prepend">
+                          <InputGroup addonType="prepend">
                             <InputGroupText>
                               <i className="tim-icons icon-single-02" />
                             </InputGroupText>
-                          </InputGroupAddon>
+                          </InputGroup>
                           <Input
                             placeholder="Full Name"
                             type="text"
@@ -109,11 +112,11 @@ export default function RegisterPage() {
                             "input-group-focus": emailFocus,
                           })}
                         >
-                          <InputGroupAddon addonType="prepend">
+                          <InputGroup addonType="prepend">
                             <InputGroupText>
                               <i className="tim-icons icon-email-85" />
                             </InputGroupText>
-                          </InputGroupAddon>
+                          </InputGroup>
                           <Input
                             placeholder="Email"
                             type="text"
@@ -126,11 +129,11 @@ export default function RegisterPage() {
                             "input-group-focus": passwordFocus,
                           })}
                         >
-                          <InputGroupAddon addonType="prepend">
+                          <InputGroup addonType="prepend">
                             <InputGroupText>
                               <i className="tim-icons icon-lock-circle" />
                             </InputGroupText>
-                          </InputGroupAddon>
+                          </InputGroup>
                           <Input
                             placeholder="Password"
                             type="text"
