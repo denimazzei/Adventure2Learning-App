@@ -9,12 +9,13 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Index from "../src/components/Index";
 import LandingPage from "../src/components/LandingPage.js";
 import RegisterPage from "../src/components/RegisterPage/RegisterPage.js";
+import LoginPage from "../src/components/LoginPage/LoginPage";
 //import ProfilePage from "../components/ProfilePage.js";
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/components" render={(props) => <Index {...props} />} />
+      <Route path="/home" render={(props) => <Index {...props} />} />
       <Route
         path="/landing-page"
         render={(props) => <LandingPage {...props} />}
@@ -23,8 +24,9 @@ ReactDOM.render(
         path="/register-page"
         render={(props) => <RegisterPage {...props} />}
       />
+      <Route path="/login-page" render={(props) => <LoginPage {...props} />} />
 
-      <Redirect from="/" to="/components" />
+      <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
