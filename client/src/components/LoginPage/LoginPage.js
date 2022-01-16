@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from "classnames";
+import "bootstrap/dist/css/bootstrap.min.css";
 // reactstrap components
 import {
   Button,

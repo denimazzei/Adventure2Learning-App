@@ -1,4 +1,5 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // core components
 import IndexNavbar from "../components/Navbars/IndexNavbar.js";

@@ -1,4 +1,5 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import SearchMovies from "./Search";
 // react plugin used to create charts
 //import { Line } from "react-chartjs-2";

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Label, Form, Input } from "reactstrap";
 
 export default function SearchMovies() {
